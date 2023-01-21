@@ -4,7 +4,7 @@ from rest_framework.validators import UniqueValidator
 
 class PersonaSerializer(serializers.ModelSerializer):
     document_type = serializers.CharField(max_length=20)
-    document = serializers.IntegerField(validators=[UniqueValidator(queryset=Persona.objects.all(), message='document already exists')])
+    document = serializers.BigIntegerField(validators=[UniqueValidator(queryset=Persona.objects.all(), message='document already exists')])
     name = serializers.CharField(max_length=20)
     lastname = serializers.CharField(max_length=20)
     email = serializers.EmailField(validators=[UniqueValidator(queryset=Persona.objects.all(), message='email already exists')])
